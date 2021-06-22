@@ -1,6 +1,6 @@
 from knox.models import AuthToken
+from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework import generics, permissions
 from .serializers import GetUserSerializer, CreateUserSerializer, LoginSerializer
 
 
