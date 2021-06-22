@@ -37,8 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'itil_app'
+	'rest_framework',
+	'itil_app',
+	'knox'
 ]
+
+REST_FRAMEWORK = {
+	'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+	'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend', 'rest_framework.filters.OrderingFilter']
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
