@@ -1,0 +1,21 @@
+# Python
+*.pyc
+
+# Settings
+.vscode/
+.DS_Store
+
+# Environments
+env/
+venv/
+*.env
+*.venv
+env.bak/
+venv.bak/
+
+# Shell Files
+*.sh
+*.command
+
+#static folder
+static/
