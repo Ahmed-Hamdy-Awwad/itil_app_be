@@ -17,5 +17,8 @@ venv.bak/
 *.sh
 *.command
 
-#static folder
+# Static folder
 static/
+
+# Database
+db.sqlite3

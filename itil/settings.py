@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'itil_app'
 ]
 
 MIDDLEWARE = [
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'itil.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'PORT': '3306',
+        'USER': 'root',
+        'NAME': 'itil',
+        'HOST': '127.0.0.1',
+        'PASSWORD': '123456',
+        'ENGINE': 'django.db.backends.mysql'
     }
 }
 
