@@ -1,6 +1,7 @@
 from knox.models import AuthToken
-from rest_framework import generics
+from django.contrib.auth.models import User
 from rest_framework.response import Response
+from rest_framework import generics, viewsets
 from .serializers import GetUserSerializer, CreateUserSerializer, LoginSerializer
 
 
@@ -17,6 +18,7 @@ class CreateUser(generics.GenericAPIView):
 			'toke': token[1]
 		})
 
+
 class Login(generics.GenericAPIView):
 	serializer_class = LoginSerializer
 
@@ -31,3 +33,14 @@ class Login(generics.GenericAPIView):
 				'token': token,
 				'expiry': tokenTTL
 			})
+
+
+class UserView(viewsets.ModelViewSet):
+	filter_fields = ('username',)
+	# permission_classes = [permissions.DjangoModelPermissions]
+
+	def get_queryset(self):
+		return User.objects.all()
+
+	def get_serializer_class(self):
+		return GetUserSerializer
