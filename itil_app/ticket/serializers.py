@@ -7,7 +7,7 @@ class GetTicketSerializer(serializers.ModelSerializer):
 	reporter = GetUserSerializer()
 	class Meta:
 		model = Ticket
-		fields = ('id', 'description', 'reporter')
+		fields = ('id', 'description', 'reporter', 'status')
 
 class CreateTicketSerializer(serializers.ModelSerializer):
 	class Meta:
