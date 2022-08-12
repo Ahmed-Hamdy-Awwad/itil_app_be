@@ -86,12 +86,8 @@ WSGI_APPLICATION = 'itil.wsgi.application'
 
 DATABASES = {
     'default': {
-        'PORT': '3306',
-        'USER': 'root',
-        'NAME': 'itil',
-        'HOST': '127.0.0.1',
-        'PASSWORD': '123456',
-        'ENGINE': 'django.db.backends.mysql'
+        'NAME': 'db',
+        'ENGINE': 'django.db.backends.sqlite3'
     }
 }
 

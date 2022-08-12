@@ -21,4 +21,4 @@ venv.bak/
 static/
 
 # Database
-db.sqlite3
+# db.sqlite3
