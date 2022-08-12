@@ -1,6 +1,6 @@
 from .models import Ticket
-from .serializers import GetTicketSerializer
 from rest_framework import viewsets, permissions
+from .serializers import GetTicketSerializer, CreateTicketSerializer
 
 
 class TicketView(viewsets.ModelViewSet):
@@ -11,7 +11,10 @@ class TicketView(viewsets.ModelViewSet):
 		return Ticket.objects.all()
 
 	def perform_create(self, serializer):
-		serializer.save(reporter=self.request.user)
+		serializer.save(reporter_id=self.request.user.id)
 
 	def get_serializer_class(self):
-		return GetTicketSerializer
+		serializer_type = self.request.query_params.get('serializer')
+		if serializer_type == 'get':
+			return GetTicketSerializer
+		return CreateTicketSerializer
